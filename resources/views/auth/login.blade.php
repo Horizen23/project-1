@@ -70,7 +70,7 @@
         @enderror
         <p class="lorem_text">สามารถกรอกอีเมล์เพื่อขอรีเซ็ตรหัสผ่าน </p>
 
-        
+
         <div class="box_main_2">
             <input id="email" type="email" placeholder="กรุณากรอกอีเมล์" class="email_bt_2 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             </div>
