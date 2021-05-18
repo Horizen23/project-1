@@ -54,19 +54,30 @@
   </div>
     </div>
   </div>
+</form>
   <!-- login section end-->
 
   <!-- footer section start-->
   <div class="footer_section layout_padding">
     <div class="container">
-      <h1 class="subscribr_text">ลืมรหัสผ่าน</h1>
-      <p class="lorem_text">สามารถกรอกอีเมล์เพื่อขอรีเซ็ตรหัสผ่าน </p>
-      <div class="box_main_2">
-          <textarea type="" class="email_bt_2" placeholder="กรุณากรอกอีเมล์" name=""></textarea>
-        </div>
-        <button class="subscribe_bt_2"><a href="#">ยืนยัน</a></button>
-    </div>
+
+    <form method="POST" action="{{ route('password.email') }}">
+        @csrf
+
+        <h1 class="subscribr_text">ลืมรหัสผ่าน</h1>
+        @error('email')
+        <h1 >{{ $message }}</h1>
+        @enderror
+        <p class="lorem_text">สามารถกรอกอีเมล์เพื่อขอรีเซ็ตรหัสผ่าน </p>
+
+        <div class="box_main_2">
+            <input id="email" type="email" placeholder="กรุณากรอกอีเมล์" class="email_bt_2 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            </div>
+            <button class="subscribe_bt_2">ยืนยัน</a></button>
+            </div>
+
+    </form>
   </div>
-</form>
+
   <!-- footer section end-->
   @endsection
